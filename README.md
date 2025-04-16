@@ -1,2 +1,18 @@
 # APB-protocol
 In B.E Final Year Project, I tackled the design and verification of the APB protocol, a crucial element for on-chip communication. By leveraging the UVM, I constructed a comprehensive test environment. This environment included components like a sequencer, driver, and monitor, enabling thorough testing of the APB protocol's functionality.
+![APB_P1_page-0001](https://github.com/user-attachments/assets/db9e72ec-79c1-494e-8b1d-eff72f484e7a)
+![APB_P1_page-0002](https://github.com/user-attachments/assets/b404d520-66b0-4b7c-b378-39ca4036aac8)
+![APB_P1_page-0003](https://github.com/user-attachments/assets/c1d737ad-0a03-4720-901d-d009a5f43ad4)
+![APB_P1_page-0004](https://github.com/user-attachments/assets/ce957a23-d8a4-4082-8108-77f8adfac570)
+![APB_P1_page-0005](https://github.com/user-attachments/assets/11079d0b-dc46-447a-91a5-1599d2a2e0f9)
+![APB_P1_page-0006](https://github.com/user-attachments/assets/a56beefa-4361-4026-a005-b442dfdae5e3)
+![APB_P1_page-0007](https://github.com/user-attachments/assets/5aaa7fd7-792d-4b3d-b1a5-ae957ff074ed)
+![APB_P1_page-0008](https://github.com/user-attachments/assets/a1142a9d-56c2-4929-97e7-9fd7a654d5e4)
+![APB_P1_page-0009](https://github.com/user-attachments/assets/8e418567-02f6-49e6-ab04-62b5667ed32a)
+![APB_P1_page-0010](https://github.com/user-attachments/assets/cbc5cb03-56be-4171-ac4a-0f141b05832b)
+![APB_P1_page-0011](https://github.com/user-attachments/assets/bf3c1586-4885-4955-9083-0c507d1542ce)
+![APB_P1_page-0012](https://github.com/user-attachments/assets/04501bb8-783c-40d2-8310-a6bda7489306)
+![APB_P1_page-0016](https://github.com/user-attachments/assets/3b903e41-fcf8-44dc-a92e-cca725247042)
+![APB_P1_page-0015](https://github.com/user-attachments/assets/63cc4f89-4549-4397-abd0-295a085eec61)
+![APB_P1_page-0014](https://github.com/user-attachments/assets/5de3c113-5be7-4e45-b25c-fb583d768066)
+![APB_P1_page-0013](https://github.com/user-attachments/assets/a46c5c18-8d0c-4103-b648-8b18144ac394)
