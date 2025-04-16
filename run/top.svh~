@@ -1,0 +1,24 @@
+//import uvm_pkg::*;      //uvm libraray files all the files of the uvm lib will be called out except macro folder's files 
+//`include "uvm_macros.svh" //uvm librarty files macros folder will be called via this line `  they run during compilation time 
+
+
+//`include "../tb/tb_apb_seq_item.sv";
+//`include "../tb/tb_apb_seq.sv";
+//`include "../tb/tb_apb_drv.sv";
+//`include "../tb/tb_apb_mon.sv";
+//`include "../tb/tb_apb_seqr.sv";
+//`include "../tb/tb_apb_agent.sv";
+//`include "../tb/tb_apb_scb.sv";
+//`include "../tb/tb_apb_env.sv";
+//`include "../tb/tb_apb_test.sv";
+//`include "../tb/tb_apb_interface.sv";
+//`include "../dut/apb_dut.sv";
+`include "../dut/apb_protocol.v";
+`include "../dut/apb_tb_top.v";
+`include "../dut/master.v";
+`include "../dut/slave1.v";
+`include "../dut/slave2.v";
+
+
+
+//`include "../tb/tb_apb_tb_top.sv";

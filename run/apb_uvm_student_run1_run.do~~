@@ -1,0 +1,13 @@
+vlog -work work -vopt -sv -stats=none C:\Users\Pc\Desktop\dinu\APB\run\top.svh
+vsim -voptargs=+acc +UVM_TESTNAME=apb_random_test work.apb_tb_top -debugDB -fsmdebug -l apb_output.log -sv_seed random 
+vsim -voptargs=+acc +UVM_TESTNAME=apb_random_test work.apb_tb_top -debugDB -fsmdebug -l apb_output1.log -sv_seed random 
+vsim -voptargs=+acc +UVM_TESTNAME=apb_wr_rd_test  work.apb_tb_top -debugDB -fsmdebug -l apb_output2.log -sv_seed random 
+vsim -voptargs=+acc +UVM_TESTNAME=apb_rd_test     work.apb_tb_top -debugDB -fsmdebug -l apb_output3.log -sv_seed random 
+vsim -voptargs=+acc +UVM_TESTNAME=apb_random_test work.apb_tb_top -debugDB -fsmdebug -l apb_output5.log -sv_seed random
+vsim -voptargs=+acc +UVM_TESTNAME=apb_random_test work.apb_tb_top -debugDB -fsmdebug -l apb_output6.log -sv_seed random 
+vsim -voptargs=+acc +UVM_TESTNAME=apb_random_test work.apb_tb_top -debugDB -fsmdebug -l apb_output7.log -sv_seed random 
+vsim -voptargs=+acc +UVM_TESTNAME=apb_wr_rd_test  work.apb_tb_top -debugDB -fsmdebug -l apb_output8.log -sv_seed random 
+vsim -voptargs=+acc +UVM_TESTNAME=apb_rd_test     work.apb_tb_top -debugDB -fsmdebug -l apb_output9.log -sv_seed random 
+vsim -voptargs=+acc +UVM_TESTNAME=apb_random_test work.apb_tb_top -debugDB -fsmdebug -l apb_output10.log -sv_seed random  
+//add wave -position insertpoint sim:/apb_tb_top/intf/*
+//run -all

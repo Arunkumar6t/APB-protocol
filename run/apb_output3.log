@@ -1,0 +1,23 @@
+# End time: 18:21:12 on Apr 19,2024, Elapsed time: 0:00:10
+# Errors: 0, Warnings: 2
+# vsim -voptargs="+acc" "+UVM_TESTNAME=apb_rd_test" work.apb_tb_top -debugDB -fsmdebug -l apb_output3.log -sv_seed random 
+# Start time: 18:21:12 on Apr 19,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# 
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg
+# Loading work.top_svh_unit(fast)
+# Loading work.apb_tb_top(fast)
+# Loading work.apb_interface(fast__1)
+# Loading work.apb_slave(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading work.apb_interface(fast)
+# ** Warning: (vsim-3015) ../tb/tb_apb_tb_top.sv(15): [PCDPC] - Port size (1) does not match connection size (2) for port 'pwrite'. The port definition is at: ../dut/apb_dut.sv(7).
+#    Time: 0 ns  Iteration: 0  Instance: /apb_tb_top/dut File: ../dut/apb_dut.sv
+# ** Warning: (vsim-3764) C:/questasim64_10.4e/win64/../verilog_src/uvm-1.1d/src/tlm1/uvm_analysis_port.svh(114): Stand-alone call to function 'write' treated as implicit void cast.
+#    Time: 0 ns  Iteration: 0  Region: /uvm_pkg::uvm_analysis_imp #(top_svh_unit::apb_sequence_item, top_svh_unit::apb_scoreboard) File: C:/questasim64_10.4e/win64/../verilog_src/uvm-1.1d/src/uvm_pkg.sv
+# Loading C:/questasim64_10.4e/uvm-1.1d\win64\uvm_dpi.dll
+# ** Note: (vsim-8716) Reusing existing debug database vsim.dbg.
+# 
+# Sv_Seed = 2204076497
+vsim -voptargs=+acc +UVM_TESTNAME=apb_random_test work.apb_tb_top -debugDB -fsmdebug -l apb_output5.log -sv_seed random

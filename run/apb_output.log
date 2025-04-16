@@ -1,0 +1,232 @@
+# End time: 18:29:12 on Apr 19,2024, Elapsed time: 0:06:48
+# Errors: 0, Warnings: 2
+# vsim -voptargs="+acc" "+UVM_TESTNAME=apb_random_test" work.apb_tb_top -debugDB -fsmdebug -l apb_output.log -sv_seed random 
+# Start time: 18:29:12 on Apr 19,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# 
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg
+# Loading work.top_svh_unit(fast)
+# Loading work.apb_tb_top(fast)
+# Loading work.apb_interface(fast__1)
+# Loading work.apb_slave(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading work.apb_interface(fast)
+# ** Warning: (vsim-3015) ../tb/tb_apb_tb_top.sv(15): [PCDPC] - Port size (1) does not match connection size (2) for port 'pwrite'. The port definition is at: ../dut/apb_dut.sv(7).
+#    Time: 0 ns  Iteration: 0  Instance: /apb_tb_top/dut File: ../dut/apb_dut.sv
+# ** Warning: (vsim-3764) C:/questasim64_10.4e/win64/../verilog_src/uvm-1.1d/src/tlm1/uvm_analysis_port.svh(114): Stand-alone call to function 'write' treated as implicit void cast.
+#    Time: 0 ns  Iteration: 0  Region: /uvm_pkg::uvm_analysis_imp #(top_svh_unit::apb_sequence_item, top_svh_unit::apb_scoreboard) File: C:/questasim64_10.4e/win64/../verilog_src/uvm-1.1d/src/uvm_pkg.sv
+# Loading C:/questasim64_10.4e/uvm-1.1d\win64\uvm_dpi.dll
+# ** Note: (vsim-8716) Reusing existing debug database vsim.dbg.
+# 
+# Sv_Seed = 2548033937
+add wave -position insertpoint sim:/apb_tb_top/intf/*
+run -all
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+#######################TB_TOP#####################
+# TEST
+# TEST
+# UVM_INFO @ 0: reporter [RNTST] Running test apb_random_test...
+# BTEST
+# ENV
+# BTEST
+# BENV
+# AGENT
+# BAGENT
+# SEQR
+# DRV
+# MON
+# BDRV
+# BMON
+# EOETEST
+# --------------------------------------------------------------
+# Name                       Type                    Size  Value
+# --------------------------------------------------------------
+# uvm_test_top               apb_random_test         -     @458 
+#   apb_env_h                apb_env                 -     @470 
+#     apb_agent_h            apb_agent               -     @499 
+#       apb_driver           apb_driver              -     @631 
+#         rsp_port           uvm_analysis_port       -     @648 
+#         seq_item_port      uvm_seq_item_pull_port  -     @639 
+#       apb_monitor          apb_monitor             -     @657 
+#         monitor_port       uvm_analysis_port       -     @665 
+#       apb_seqeuncer_h      apb_sequencer           -     @508 
+#         rsp_export         uvm_analysis_export     -     @516 
+#         seq_item_export    uvm_seq_item_pull_imp   -     @622 
+#         arbitration_queue  array                   0     -    
+#         lock_queue         array                   0     -    
+#         num_last_reqs      integral                32    'd1  
+#         num_last_rsps      integral                32    'd1  
+#     apb_scoreboard_h       apb_scoreboard          -     @482 
+#       scoreboard_import    uvm_analysis_imp        -     @490 
+# --------------------------------------------------------------
+# ----------------------------------------------
+# Name            Type               Size  Value
+# ----------------------------------------------
+# req             apb_sequence_item  -     @684 
+#   paddr         integral           2     'h0  
+#   pwdata        integral           2     'h3  
+#   pwrite        integral           1     'h1  
+#   prdata        integral           2     'h0  
+#   penable       integral           1     'h1  
+#   pselx         integral           1     'h1  
+#   pslave_error  integral           1     'h0  
+#   pready        integral           1     'h0  
+# ----------------------------------------------
+# ----------------------------------------------
+# Name            Type               Size  Value
+# ----------------------------------------------
+# req             apb_sequence_item  -     @712 
+#   paddr         integral           2     'h0  
+#   pwdata        integral           2     'h1  
+#   pwrite        integral           1     'h1  
+#   prdata        integral           2     'h0  
+#   penable       integral           1     'h1  
+#   pselx         integral           1     'h1  
+#   pslave_error  integral           1     'h0  
+#   pready        integral           1     'h0  
+# ----------------------------------------------
+# ----------------------------------------------
+# Name            Type               Size  Value
+# ----------------------------------------------
+# req             apb_sequence_item  -     @716 
+#   paddr         integral           2     'h1  
+#   pwdata        integral           2     'h3  
+#   pwrite        integral           1     'h0  
+#   prdata        integral           2     'h0  
+#   penable       integral           1     'h1  
+#   pselx         integral           1     'h1  
+#   pslave_error  integral           1     'h0  
+#   pready        integral           1     'h0  
+# ----------------------------------------------
+# ----------------------------------------------
+# Name            Type               Size  Value
+# ----------------------------------------------
+# req             apb_sequence_item  -     @720 
+#   paddr         integral           2     'h1  
+#   pwdata        integral           2     'h1  
+#   pwrite        integral           1     'h0  
+#   prdata        integral           2     'h0  
+#   penable       integral           1     'h1  
+#   pselx         integral           1     'h0  
+#   pslave_error  integral           1     'h0  
+#   pready        integral           1     'h0  
+# ----------------------------------------------
+# ----------------------------------------------
+# Name            Type               Size  Value
+# ----------------------------------------------
+# req             apb_sequence_item  -     @724 
+#   paddr         integral           2     'h3  
+#   pwdata        integral           2     'h3  
+#   pwrite        integral           1     'h1  
+#   prdata        integral           2     'h0  
+#   penable       integral           1     'h0  
+#   pselx         integral           1     'h0  
+#   pslave_error  integral           1     'h0  
+#   pready        integral           1     'h0  
+# ----------------------------------------------
+# ----------------------------------------------
+# Name            Type               Size  Value
+# ----------------------------------------------
+# req             apb_sequence_item  -     @728 
+#   paddr         integral           2     'h2  
+#   pwdata        integral           2     'h1  
+#   pwrite        integral           1     'h1  
+#   prdata        integral           2     'h0  
+#   penable       integral           1     'h0  
+#   pselx         integral           1     'h1  
+#   pslave_error  integral           1     'h0  
+#   pready        integral           1     'h0  
+# ----------------------------------------------
+# ----------------------------------------------
+# Name            Type               Size  Value
+# ----------------------------------------------
+# req             apb_sequence_item  -     @732 
+#   paddr         integral           2     'h1  
+#   pwdata        integral           2     'h2  
+#   pwrite        integral           1     'h1  
+#   prdata        integral           2     'h0  
+#   penable       integral           1     'h0  
+#   pselx         integral           1     'h0  
+#   pslave_error  integral           1     'h0  
+#   pready        integral           1     'h0  
+# ----------------------------------------------
+# ----------------------------------------------
+# Name            Type               Size  Value
+# ----------------------------------------------
+# req             apb_sequence_item  -     @736 
+#   paddr         integral           2     'h2  
+#   pwdata        integral           2     'h3  
+#   pwrite        integral           1     'h0  
+#   prdata        integral           2     'h0  
+#   penable       integral           1     'h1  
+#   pselx         integral           1     'h0  
+#   pslave_error  integral           1     'h0  
+#   pready        integral           1     'h0  
+# ----------------------------------------------
+# ----------------------------------------------
+# Name            Type               Size  Value
+# ----------------------------------------------
+# req             apb_sequence_item  -     @740 
+#   paddr         integral           2     'h0  
+#   pwdata        integral           2     'h2  
+#   pwrite        integral           1     'h1  
+#   prdata        integral           2     'h0  
+#   penable       integral           1     'h1  
+#   pselx         integral           1     'h0  
+#   pslave_error  integral           1     'h0  
+#   pready        integral           1     'h0  
+# ----------------------------------------------
+# ----------------------------------------------
+# Name            Type               Size  Value
+# ----------------------------------------------
+# req             apb_sequence_item  -     @744 
+#   paddr         integral           2     'h2  
+#   pwdata        integral           2     'h2  
+#   pwrite        integral           1     'h0  
+#   prdata        integral           2     'h0  
+#   penable       integral           1     'h1  
+#   pselx         integral           1     'h1  
+#   pslave_error  integral           1     'h0  
+#   pready        integral           1     'h0  
+# ----------------------------------------------
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 205: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :    4
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [Questa UVM]     2
+# [RNTST]     1
+# [TEST_DONE]     1
+# ** Note: $finish    : C:/questasim64_10.4e/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 205 ns  Iteration: 53  Instance: /apb_tb_top
+# 1
+# Break in Task uvm_pkg/uvm_root::run_test at C:/questasim64_10.4e/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
+# End time: 20:32:32 on Apr 19,2024, Elapsed time: 2:03:20
+# Errors: 0, Warnings: 2

@@ -1,0 +1,53 @@
+# End time: 15:39:22 on Apr 14,2024, Elapsed time: 0:00:34
+# Errors: 0, Warnings: 2
+# vsim -voptargs="+acc" "+UVM_TESTNAME=apb_random_test" work.apb_tb_top -debugDB -fsmdebug -l apb_output4.log -sv_seed random 
+# Start time: 15:39:23 on Apr 14,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# 
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg
+# Loading work.top_svh_unit(fast)
+# Loading work.apb_tb_top(fast)
+# Loading work.apb_interface(fast__1)
+# Loading work.apb_slave(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading work.apb_interface(fast)
+# ** Warning: (vsim-3015) ../tb/tb_apb_tb_top.sv(15): [PCDPC] - Port size (1) does not match connection size (2) for port 'pwrite'. The port definition is at: ../dut/apb_dut.v(6).
+#    Time: 0 ns  Iteration: 0  Instance: /apb_tb_top/dut File: ../dut/apb_dut.v
+# ** Warning: (vsim-3764) C:/questasim64_10.4e/win64/../verilog_src/uvm-1.1d/src/tlm1/uvm_analysis_port.svh(114): Stand-alone call to function 'write' treated as implicit void cast.
+#    Time: 0 ns  Iteration: 0  Region: /uvm_pkg::uvm_analysis_imp #(top_svh_unit::apb_sequence_item, top_svh_unit::apb_scoreboard) File: C:/questasim64_10.4e/win64/../verilog_src/uvm-1.1d/src/uvm_pkg.sv
+# Loading C:/questasim64_10.4e/uvm-1.1d\win64\uvm_dpi.dll
+# ** Note: (vsim-8716) Reusing existing debug database vsim.dbg.
+# 
+# Sv_Seed = 4029146213
+do run.do
+# QuestaSim-64 vlog 10.4e Compiler 2016.04 Apr  9 2016
+# Start time: 15:45:28 on Apr 14,2024
+# vlog -reportprogress 300 top.svh 
+# ** Note: (vlog-2286) Using implicit +incdir+C:/questasim64_10.4e/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# 
+# -- Compiling interface apb_interface
+# ** Warning: top.svh(14): (vlog-2283) Extra semicolon in $unit (global) scope.
+# 
+# ** Warning: top.svh(15): (vlog-2283) Extra semicolon in $unit (global) scope.
+# 
+# ** Warning: top.svh(16): (vlog-2283) Extra semicolon in $unit (global) scope.
+# 
+# -- Compiling package top_svh_unit
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# ** Warning: ../tb/tb_apb_seq.sv(18): (vlog-2239) Treating stand-alone use of presumed external function as an implicit VOID cast.
+# 
+# ** Warning: ../tb/tb_apb_seq.sv(44): (vlog-2239) Treating stand-alone use of presumed external function as an implicit VOID cast.
+# 
+# ** Warning: ../tb/tb_apb_seq.sv(69): (vlog-2239) Treating stand-alone use of presumed external function as an implicit VOID cast.
+# 
+# ** Warning: ../tb/tb_apb_seq.sv(75): (vlog-2239) Treating stand-alone use of presumed external function as an implicit VOID cast.
+# 
+# -- Compiling interface apb_interface
+# -- Compiling module apb_slave
+# -- Compiling module apb_tb_top
+# 
+# Top level modules:
+# 	apb_tb_top
+# End time: 15:45:29 on Apr 14,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 7
