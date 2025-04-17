@@ -61,8 +61,10 @@ AMBA comprises three buses:
 •	Configuration and Low-Bandwidth Traffic: APB handles configuration registers and low-bandwidth data traffic in peripherals2.
 In summary, the AMBA architecture provides a standardized way to connect and manage components in an SoC, ensuring efficient communication and reusability. The APB serves as a lightweight interface for low-bandwidth peripherals.
 ![image](https://github.com/user-attachments/assets/cba074cb-93af-4434-bd41-4c674b6e3592)
+
 Fig 1.2 AMBA Bus Architecture
 1.5. Signal Description
+
 ![image](https://github.com/user-attachments/assets/918e30c0-8a63-469f-83bc-c1527749fdf3)
 
 
@@ -92,6 +94,7 @@ This simplifies driving the buses because turnaround time between the peripheral
 In the default system, because the bridge is the only master on the bus, PWDATA is driven continuously. PRDATA is a multiplexed connection of all peripheral PRDATA outputs on the bus, and is only driven when the slaves are selected by the bridge during APB read transfers.
  
 ![image](https://github.com/user-attachments/assets/f519c1f7-d48c-4f91-9603-1ed362f34aef)
+
 Fig 3.1 APB Interface with Slaves
 
 
