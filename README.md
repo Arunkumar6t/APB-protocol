@@ -26,6 +26,7 @@ Arm Holdings periodically releases updates to the architecture. Architecture ver
 
 1.2	ARM AMBA
 ![image](https://github.com/user-attachments/assets/27ffa560-340d-4f9d-879a-d1d6c7e39d6e)
+
 Fig. 1.1 AMBA Specifications
 AMBA (Advanced Microcontroller Bus Architecture) is a freely-available, open standard for the connection and management of functional blocks in a system-on-chip (SoC). It facilitates right-first-time development of multi-processor designs, with large numbers of controllers and peripherals. 
 AMBA specifications are royalty-free, platform-independent and can be used with any processor architecture. Due to its widespread adoption, AMBA has a robust ecosystem of partners that ensures compatibility and scalability between IP components from different design teams and vendors.
