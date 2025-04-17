@@ -1,5 +1,22 @@
-# APB-protocol
-In B.E Final Year Project, I tackled the design and verification of the APB protocol, a crucial element for on-chip communication. By leveraging the UVM, I constructed a comprehensive test environment. This environment included components like a sequencer, driver, and monitor, enabling thorough testing of the APB protocol's functionality.
+ABSTRACT
+
+The SoC (System on Chip) uses AMBA (Advanced Microcontroller Bus Architecture) as an onchip bus. APB (Advanced Peripheral Bus) is one of the components of the AMBA bus architecture. APB is low bandwidth and low performance bus used to connect the peripherals like UART, Keypad, Timer and other peripheral devices to the bus architecture. This paper introduces the AMBA APB bus architecture design. The design is created using the verilog HDL and is tested by a verilog testbench. This design is verified using UVM (Universal Verification Methodology).
+In this project, I have developed synthesizable design of APB UVM testbench for the functional verification of the same in system verilog HDL. I have also written shell script for testing the required feature only at a time. The software tools that I have used are GVim (Text Editor), Questa Sim (Verilog Compiler and Simulator).
+
+
+LIST OF ABBREVIATIONS
+ARM	Advanced RISC Machine
+RISC	Reduced Instruction Set Computing
+SoC	System-on-Chip
+SoM	Systems-on-Modules
+CISC	Complex Instruction Set Computing
+AMBA	Advanced Microcontroller Bus Architecture
+APB	Advanced Peripheral Bus
+AHB	Advanced High-performance Bus
+ASB	Advanced System Bus
+UVM	Universal Verification Methodology
+DUT	Design Under Test
+
 CHAPTER 1
 INTRODUCTION & THEORETICAL BACKGROUND
 1.1	ARM
@@ -8,7 +25,7 @@ Processors that have a RISC architecture typically require fewer transistors tha
 Arm Holdings periodically releases updates to the architecture. Architecture versions Armv3 to Armv7 support 32-bit address space (pre-Armv3 chips, made before Arm Holdings was formed, as used in the Acorn Archimedes, had 26-bit address space) and 32-bit arithmetic; most architectures have 32-bit fixed-length instructions. The Thumb version supports a variable-length instruction set that provides both 32- and 16-bit instructions for improved code density. Some older cores can also provide hardware execution of Java bytecodes; and newer ones have one instruction for JavaScript. Released in 2011, the Armv8-A architecture added support for a 64-bit address space and 64-bit arithmetic with its new 32-bit fixed-length instruction set. Some recent Arm CPUs have simultaneous multithreading (SMT) with e.g. Arm Neoverse E1 being able to execute two threads concurrently for improved aggregate throughput performance. Arm Cortex-A65AE for automotive applications is also a multithreaded processor, and has Dual Core Lock-Step for fault-tolerant designs (supporting Automotive Safety Integrity Level D, the highest level). The Neoverse N1 is designed for "as few as 8 cores" or "designs that scale from 64 to 128 N1 cores within a single coherent system.
 
 1.2	ARM AMBA
- 
+![image](https://github.com/user-attachments/assets/27ffa560-340d-4f9d-879a-d1d6c7e39d6e)
 Fig. 1.1 AMBA Specifications
 AMBA (Advanced Microcontroller Bus Architecture) is a freely-available, open standard for the connection and management of functional blocks in a system-on-chip (SoC). It facilitates right-first-time development of multi-processor designs, with large numbers of controllers and peripherals. 
 AMBA specifications are royalty-free, platform-independent and can be used with any processor architecture. Due to its widespread adoption, AMBA has a robust ecosystem of partners that ensures compatibility and scalability between IP components from different design teams and vendors.
@@ -43,23 +60,12 @@ AMBA comprises three buses:
 •	Compact and Low Power: APB is highly compact and consumes minimal power.
 •	Configuration and Low-Bandwidth Traffic: APB handles configuration registers and low-bandwidth data traffic in peripherals2.
 In summary, the AMBA architecture provides a standardized way to connect and manage components in an SoC, ensuring efficient communication and reusability. The APB serves as a lightweight interface for low-bandwidth peripherals.
- 
+![image](https://github.com/user-attachments/assets/cba074cb-93af-4434-bd41-4c674b6e3592)
 Fig 1.2 AMBA Bus Architecture
 1.5. Signal Description
-Signal	Source	Description
-PCLK	Clock source 	Clock. The rising edge of PCLK times all transfers on the APB.
-PRESETn	System bus equivalent 	Reset. The APB reset signal is active LOW. This signal is normally connected directly to the system bus reset signal.
-PADDR	APB bridge 	Address. This is the APB address bus. It can be up to 32 bits wide and is driven by the peripheral bus bridge unit.
-PSELx	APB bridge 	Select. The APB bridge unit generates this signal to each peripheral bus slave. It indicates that the slave device is selected and that a data transfer is required. There is a PSELx signal for each slave.
-PENABLE	APB bridge 	Enable. This signal indicates the second and subsequent cycles of an APB transfer.
-PWRITE	APB bridge 	Direction. This signal indicates an APB write access when HIGH and an APB read access when LOW.
-PWDATA	APB bridge 	Write data. This bus is driven by the peripheral bus bridge unit during write cycles when PWRITE is HIGH. This bus can be up to 32 bits wide.
-PREADY	Slave interface 	Ready. The slave uses this signal to extend an APB transfer.
-PRDATA	Slave interface 	Read Data. The selected slave drives this bus during read cycles when PWRITE is LOW. This bus can be up to 32-bits wide.
-PSLVERR	Slave interface	This signal indicates a transfer failure. APB peripherals are not required to support the PSLVERR pin. This is true for both existing and new APB peripheral designs. Where a peripheral does not include this pin then the appropriate input to the APB bridge is tied LOW.
+![image](https://github.com/user-attachments/assets/918e30c0-8a63-469f-83bc-c1527749fdf3)
 
 
- 
 Chapter 2
 Literature Survey
 
@@ -85,6 +91,7 @@ The APB data bus is split into two separate directions:
 This simplifies driving the buses because turnaround time between the peripherals and bridge is avoided. 
 In the default system, because the bridge is the only master on the bus, PWDATA is driven continuously. PRDATA is a multiplexed connection of all peripheral PRDATA outputs on the bus, and is only driven when the slaves are selected by the bridge during APB read transfers.
  
+![image](https://github.com/user-attachments/assets/f519c1f7-d48c-4f91-9603-1ed362f34aef)
 Fig 3.1 APB Interface with Slaves
 
 
@@ -99,6 +106,7 @@ Two types of write transfer are described in this section:
 With no wait states
 The write transfer starts with the address, write data, write signal and select signal all changing after the rising edge of the clock. The first clock cycle of the transfer is called the Setup phase. After the following clock edge the enable signal is asserted, PENABLE, and this indicates that the Access phase is taking place. The address, data and control signals all remain valid throughout the Access phase. The transfer completes at the end of this cycle.
 The enable signal, PENABLE, is deasserted at the end of the transfer. The select signal, PSELx, also goes LOW unless the transfer is to be followed immediately by another transfer to the same peripheral
+![image](https://github.com/user-attachments/assets/5cfb8306-ab8a-4ad9-bbfb-fb0fdd6fb64c)
  
 Fig 3.2 Write transfer with no wait states
 
@@ -112,6 +120,7 @@ Figure 2.3 shows how the PREADY signal from the slave can extend the transfer. D
 •	select signal, PSEL
 •	enable signal, PENABLE
 •	write data, PWDATA.
+![image](https://github.com/user-attachments/assets/eac2f59e-d7e0-4343-b738-1086b44520e4)
  
 Fig 3.3 Write transfer with wait states
 PREADY can take any value when PENABLE is LOW. This ensures that peripherals that have a fixed two cycle access can tie PREADY HIGH.
@@ -122,6 +131,7 @@ Two types of read transfer are described in this section:
 • With wait states.
 With no wait states
 Figure 2.4 shows a read transfer. The timing of the address, write, select, and enable signals are as described in Write transfers on page 2-2. The slave must provide the data before the end of the read transfer
+![image](https://github.com/user-attachments/assets/4e47f3dd-4831-407f-be70-7a7a45fb8d23)
  
 Fig 3.4 Read transfer with no wait states
 With wait states
@@ -131,10 +141,12 @@ Figure 2.5 shows how the PREADY signal can extend the transfer. The transfer is 
 •	select signal, PSEL
 •	enable signal, PENABLE.
 Figure 2.5 shows that two cycles are added using the PREADY signal. However, you can add any number of additional cycles, from zero upwards.
+![image](https://github.com/user-attachments/assets/724d25a7-dd26-4d5c-96dd-2e308d3ba14f)
  
 Fig 3.5 Read transfer with wait states
 
 3.3 OPERATING STATES
+![image](https://github.com/user-attachments/assets/fb9afe6d-2f0d-4267-8990-b382fb81b28d)
  
 Fig 3.6 State diagram
 The state machine operates through the following states:
@@ -154,6 +166,7 @@ In 1990, Cadence placed the Verilog language in the public domain, and Open Veri
 SystemVerilog can be divided into two distinct based on its roles,
 •	SystemVerilog for design is an extension of Verilog-2005
 •	SystemVerilog for verification
+![image](https://github.com/user-attachments/assets/be4afa6a-4fde-4711-8c0a-fd892f7c70fa)
  
 Fig 3.7 Evolution of System Verilog
 SystemVerilog Components
@@ -164,21 +177,19 @@ SystemVerilog language components are,
 •	OpenVera assertions
 •	Synopsys’ VCS DirectC simulation interface to C and C++
 •	A coverage application programming interface that provides links to coverage metrics
-  
+![image](https://github.com/user-attachments/assets/3d295d97-77f7-45a0-95f0-eab96627a887)  
 Fig 3.8 SystemVerilog Components
  
 CHAPTER 4
 VERIFICATION
 Verification is the most important part of the VLSI design flow. It aims to find out the bugs in the RTL (Register Transfer Level) design at an early stage so that it does not prove out destructive at the later stage in the design process. Around 70% of the time is consumed in the verification process. So, it is the most time-consuming process. Due to the increase in number of transistors in the integrated circuit (IC), reducing feature size and improved design tools, the complexity of the IC has increased. This raises the probability of occurrence of bugs in the design. Hence, the need for the verification of the IC became necessary.
+![image](https://github.com/user-attachments/assets/afb2b121-302f-43a6-a468-76c9ae21d2ed)
 
- 
 Fig 4.1 Position of RTL Verification in the VLSI Design Flow
 4.1 UVM 
 Universal Verification Methodology (UVM) is a standard verification methodology used to verify the RTL (Register Transfer Level) design. It consists of base class library coded in SystemVerilog[8]. The verification engineer can create different verification components by extending these classes. Moreover, UVM provides many other useful verification features such as use of macros for implementing complex function, factory for object creation [8]. 
 Figure 8 shows the various UVM verification components created to verify APB design.
-
-
-
+![image](https://github.com/user-attachments/assets/927c60f5-4e99-4b97-a49f-8f8fb59f43c2)
  
 Fig 4.2 UVM Architecture
 4.1.1 Sequence item
@@ -198,6 +209,7 @@ The agent instantiates the verification components driver, monitor, collector an
 The Environment class instantiates all the sub components such as agents, driver, monitor etc. and configures them. 
 4.1.8 Test 
 The uvm_test is extended from the uvm_component. Different testcases can be generated for the given verification environment.
+![image](https://github.com/user-attachments/assets/aa253f52-d8c4-4c4e-862f-f97349eb12ef)
  
 Fig 4.3 UVM Verification components
 •	a user-defined agent is extended from uvm_agent, uvm_agent is inherited by uvm_component
@@ -758,13 +770,16 @@ module slave2(
 Chapter 6
 RESULTS
 Simulation Results
+![image](https://github.com/user-attachments/assets/e91d7164-cc0f-4253-9c6e-5e894c10c0a1)
  
 Fig 6.1
 6.1 Write operation
+![image](https://github.com/user-attachments/assets/09b05875-cfdb-409a-a0de-f4604e8d2a1c)
  
 Fig 6.2
 
 6.2 Read Operation
+![image](https://github.com/user-attachments/assets/e345ad6a-adba-44be-8d37-6313ad2b813c)
  
 Fig 6.3
  
